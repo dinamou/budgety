@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden; }
+  html #page::-webkit-scrollbar {
+    width: .8rem;
+    padding: 2rem; }
+  html #page::-webkit-scrollbar-track {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px; }
+  html #page::-webkit-scrollbar-thumb {
+    background-color: #1F2327;
+    border-radius: 10px; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  box-sizing: border-box; }
+
+ul {
+  list-style: none; }
+
+.inc-color {
+  color: #009975; }
+
+.exp-color {
+  color: #F73859; }
+
+.inc-back {
+  background-color: #009975; }
+
+.exp-back {
+  background-color: #F73859; }
+
+#page {
+  display: grid;
+  grid-template-columns: 25vw 75vw; }
+
+.budget {
+  background-color: #1F2327;
+  position: relative;
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  width: 25vw;
+  height: 100vh; }
+  @media screen and (max-width: 600px) {
+    .budget {
+      position: relative;
+      grid-row: 1 / 2;
+      width: 100vw;
+      z-index: 1000; } }
+  .budget__con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%); }
+  .budget__title {
+    font-size: 1.4rem;
+    text-align: center;
+    color: #fff; }
+  .budget__value {
+    background-color: #333333;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 4rem auto 3rem;
+    padding: 1.5rem;
+    border-radius: 3px;
+    color: #fff; }
+  .budget__total {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 1.5rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px; }
+    .budget__total--title {
+      color: #F7F7F7;
+      padding: 1rem; }
+  .budget__income {
+    border-bottom: 2px solid #009975;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem .5rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .budget__income--text {
+      font-size: 1.4rem;
+      color: #009975; }
+    .budget__income--value {
+      font-family: 'lato', sans-serif;
+      font-weight: normal; }
+    .budget__income .right {
+      font-size: 1.4rem; }
+  .budget__expenses {
+    border-bottom: 2px solid #F73859;
+    padding: 1.5rem .5rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .budget__expenses--text {
+      font-size: 1.4rem;
+      color: #F73859; }
+    .budget__expenses--value {
+      font-family: 'lato', sans-serif;
+      font-weight: normal;
+      margin-right: 1rem; }
+    .budget__expenses--percentage {
+      background-color: #F73859;
+      padding: .2rem .3rem;
+      font-size: 1.2rem;
+      border-radius: 3px; }
+    .budget__expenses .right {
+      display: flex;
+      font-size: 1.4rem; }
+
+.add {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e7e7e7;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.05);
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (max-width: 600px) {
+    .add {
+      position: sticky;
+      top: 0;
+      z-index: 999; } }
+  .add__container {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .add__type, .add__description, .add__value {
+    background-color: transparent;
+    font-size: 1.6rem;
+    color: #333;
+    padding: 1rem;
+    margin: 0 .5rem;
+    border: none;
+    border-bottom: 2px solid #009975;
+    box-shadow: 0; }
+    .add__type:focus, .add__description:focus, .add__value:focus {
+      outline: 0;
+      background-color: transparent; }
+  .add__type {
+    width: 11.35rem; }
+  .add__description {
+    width: 25vw; }
+  .add__value {
+    width: 10rem; }
+  .add__icon {
+    font-size: 2.6rem;
+    color: #009975;
+    margin-left: .5rem; }
+    .add__icon:hover {
+      cursor: pointer; }
+
+.container {
+  background-color: #fff;
+  min-height: 100vh;
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-rows: max-content auto; }
+  @media screen and (max-width: 600px) {
+    .container {
+      grid-column: 1 / -1;
+      grid-template-rows: max-content auto auto; } }
+  .container .income, .container .expenses {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1); }
+    @media screen and (max-width: 600px) {
+      .container .income, .container .expenses {
+        grid-column: 1 / -1; } }
+  .container .income {
+    grid-row: 2 / -1; }
+    @media screen and (max-width: 600px) {
+      .container .income {
+        grid-row: 1 / 2; } }
+    .container .income__head {
+      text-align: center;
+      border-bottom: 2px solid #009975;
+      color: #fff;
+      padding: 1.5rem;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      position: relative;
+      z-index: 1; }
+      .container .income__head::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #009975;
+        z-index: -1; }
+    .container .income__title {
+      font-size: 1.6rem;
+      font-weight: 300; }
+    .container .income__list {
+      padding: 1.5rem 3rem; }
+    .container .income .item {
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 0; }
+      .container .income .item .right {
+        display: flex;
+        color: rgba(0, 153, 117, 0.9);
+        font-weight: bold; }
+      .container .income .item__value {
+        margin: 0 1rem; }
+      .container .income .item__delete {
+        display: flex;
+        align-items: center; }
+        .container .income .item__delete .delete-icon {
+          display: none;
+          font-size: 1.8rem;
+          color: #009975; }
+          .container .income .item__delete .delete-icon:hover {
+            cursor: pointer; }
+      .container .income .item:hover .delete-icon {
+        display: block; }
+    .container .income .item:not(:last-child) {
+      border-bottom: 1px solid #ddd; }
+  .container .expenses {
+    grid-row: 2 / -1; }
+    @media screen and (max-width: 600px) {
+      .container .expenses {
+        grid-row: 2 / 3; } }
+    .container .expenses__head {
+      text-align: center;
+      border-bottom: 2px solid #F73859;
+      color: #fff;
+      padding: 1.5rem;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      position: relative;
+      z-index: 1; }
+      .container .expenses__head::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #F73859;
+        z-index: -1; }
+    .container .expenses__title {
+      font-size: 1.6rem;
+      font-weight: 300; }
+    .container .expenses__list {
+      padding: 1.5rem 3rem; }
+    .container .expenses .item {
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 0; }
+      .container .expenses .item .right {
+        display: flex;
+        align-items: center;
+        color: rgba(247, 56, 89, 0.9);
+        font-weight: bold; }
+      .container .expenses .item__percentage {
+        background-color: rgba(0, 34, 61, 0.8);
+        font-size: 1.2rem;
+        border-radius: 3px;
+        color: #fff;
+        padding: .2rem .4rem;
+        margin: 0 1rem; }
+      .container .expenses .item__delete {
+        display: flex;
+        align-items: center; }
+        .container .expenses .item__delete .delete-icon {
+          display: none;
+          font-size: 1.8rem;
+          color: #F73859;
+          transition: all .5s; }
+          .container .expenses .item__delete .delete-icon:hover {
+            cursor: pointer; }
+      .container .expenses .item:hover .delete-icon {
+        display: block; }
+    .container .expenses .item:not(:last-child) {
+      border-bottom: 1px solid #ddd; }
+
+.inc-exp {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem; }
+
+.red-focus {
+  border-bottom: 2px solid #F73859; }
+
+.red {
+  color: #F73859; }
+
+.logo {
+  text-align: center; }
+  .logoh1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300; }
